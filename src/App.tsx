@@ -7,7 +7,7 @@
 */
 
 /* ----- IMPORTS ----- */
-import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route, NavLink, HashRouter } from "react-router-dom";
 import { getPagesConfigs } from "./router/routesConfig";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
 
     return (
         <>
-            <Router>
+            <HashRouter>
                 <body>
                     <div>
                         {pagesConfigs.map((pageConfig) => {
@@ -35,7 +35,7 @@ function App() {
                         })}
                     </Routes>
                 </body>
-            </Router>
+            </HashRouter>
         </>
     )
 }
