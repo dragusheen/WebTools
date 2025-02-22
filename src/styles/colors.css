@@ -1,0 +1,27 @@
+/*
+    Authors:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
+
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
+*/
+
+/* colors */
+:root {
+    --color-light: #f7f7f7;
+    --color-dark: #242424;
+    --color-dark-2: #1a1a1a;
+}
+
+.color-light {
+    color: var(--color-light);
+}
+
+.color-dark {
+    color: var(--color-dark);
+}
+
+.color-dark-2 {
+    color: var(--color-dark-2);
+}
