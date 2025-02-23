@@ -1,6 +1,5 @@
 /*
     Authors:
-    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
     („• ֊ •„)❤  <  Have a good day !
@@ -10,6 +9,7 @@
 /* ----- IMPORTS ----- */
 @import "tailwindcss";
 @import "./colors.css";
+@import "./scrollbar.css";
 
 
 /* ----- STYLES ----- */

@@ -1,6 +1,5 @@
 /*
     Authors:
-    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
     („• ֊ •„)❤  <  Have a good day !
@@ -18,10 +17,22 @@
     color: var(--color-light);
 }
 
+.bg-color-light {
+    background-color: var(--color-light);
+}
+
 .color-dark {
     color: var(--color-dark);
 }
 
+.bg-color-dark {
+    background-color: var(--color-dark);
+}
+
 .color-dark-2 {
     color: var(--color-dark-2);
+}
+
+.bg-color-dark-2 {
+    background-color: var(--color-dark-2);
 }

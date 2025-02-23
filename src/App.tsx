@@ -7,26 +7,18 @@
 */
 
 /* ----- IMPORTS ----- */
-import { Routes, Route, NavLink, HashRouter } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import { getPagesConfigs } from "./router/routesConfig";
+import NavBar from "./components/layout/NavBar";
 
 function App() {
     const pagesConfigs = getPagesConfigs();
 
     return (
         <>
-            <HashRouter>
-                <body>
-                    <div>
-                        {pagesConfigs.map((pageConfig) => {
-                            if (!pageConfig.navbar_display) return null;
-                            return (
-                                <NavLink key={pageConfig.name} to={pageConfig.path} className="color-light">
-                                    {pageConfig.name}
-                                </NavLink>
-                            )
-                        })}
-                    </div>
+            <div className="z-0 flex h-full w-full">
+                <HashRouter>
+                    <NavBar />
                     <Routes>
                         {pagesConfigs.map((pageConfig) => {
                             return (
@@ -34,8 +26,8 @@ function App() {
                             );
                         })}
                     </Routes>
-                </body>
-            </HashRouter>
+                </HashRouter>
+            </div>
         </>
     )
 }
