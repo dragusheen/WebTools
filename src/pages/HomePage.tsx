@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
     const upcomingTools = getUpcomingToolsConfigs();
 
     return (
-        <div className="w-full min-h-screen flex flex-col items-center py-10 px-6 text-center">
+        <div className="w-full min-h-screen flex flex-col items-center justify-center py-10 px-6 text-center">
             <h1 className="text-4xl font-bold color-light mb-4">
                 ✨ Welcome to WebTools! ✨
             </h1>
