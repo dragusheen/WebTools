@@ -16,7 +16,7 @@ function App() {
 
     return (
         <>
-            <div className="z-0 flex h-full w-full p-4">
+            <div className="z-0 flex h-full w-full">
                 <HashRouter>
                     <NavBar />
                     <Routes>
