@@ -36,10 +36,10 @@ const ToolTextStats: React.FC = () => {
             return avgChars.toFixed(3);
         }},
         { name: "Unique Words", value: 0, statFunction: (text: string) => new Set(text.toLowerCase().split(/\s+/)).size },
-        { name: "Longest Word", value: "", statFunction: (text: string) => text.split(/\s+/).reduce((longest, word) => word.length > longest.length ? word : longest, "") },
-        { name: "Longest Sentence", value: "", statFunction: (text: string) => {
+        { name: "Longest Word", value: "0", statFunction: (text: string) => text.split(/\s+/).reduce((longest, word) => word.length > longest.length ? word : longest, "0") },
+        { name: "Longest Sentence", value: "0", statFunction: (text: string) => {
             const sentences = text.split(/[.!?]+/g).filter(text => text.length > 0);
-            return sentences.reduce((longest, sentence) => sentence.length > longest.length ? sentence : longest, "");
+            return sentences.reduce((longest, sentence) => sentence.length > longest.length ? sentence : longest, "0");
         }},
         { name: "Uppercase Words", value: 0, statFunction: (text: string) => text.split(/\s+/).filter(word => word === word.toUpperCase()).length },
         { name: "Punctuation Count", value: 0, statFunction: (text: string) => (text.match(/[.,!?;:()&%]/g) || []).length },
