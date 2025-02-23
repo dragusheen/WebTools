@@ -9,7 +9,7 @@
 /* ----- IMPORTS ----- */
 import { Routes, Route, HashRouter } from "react-router-dom";
 import { getPagesConfigs } from "./router/routesConfig";
-import NavBar from "./components/layout/NavBar";
+import NavBar from "./components/Navbar/NavBar";
 
 function App() {
     const pagesConfigs = getPagesConfigs();
