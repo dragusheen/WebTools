@@ -28,7 +28,7 @@ const NavBar: React.FC = () => {
                 }
             </div>
             <div className={`fixed z-40 w-full h-full top-0 left-0 transition duration-300 ease-in-out backdrop-blur-xs ${open ? "opacity-100" : " opacity-0"}`}>
-                <div className={`w-1/3 h-full flex flex-col p-16 bg-color-dark-2 top-0 left-0 transition duration-300 ease-in-out ${open ? "translate-x-0" : "-translate-x-full"}`}>
+                <div className={`lg:w-1/3 md:w-1/2 sm:w-8/12 h-full flex flex-col p-16 bg-color-dark-2 top-0 left-0 transition duration-300 ease-in-out ${open ? "translate-x-0" : "-translate-x-full"}`}>
                     <div className="py-8">
                         futur search bar
                     </div>
