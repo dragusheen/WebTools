@@ -9,6 +9,7 @@
 /* ----- IMPORTS ----- */
 import HomePage from "../pages/HomePage";
 import PageNotFound from "../pages/PageNotFound";
+import ToolTextStats from "../Tools/TextStats/ToolTextStats";
 import { PageConfig, ToolConfig, UpcomingToolConfig } from "../types/routeConfig";
 
 /* ----- DATAS ----- */
@@ -19,11 +20,11 @@ const PagesConfigs: PageConfig[] = [
 
 const ToolsConfig: ToolConfig[] = [
     // { name: 'Exemple', content: Exemple, path: "/exemple" },
+    { name: 'Text Stats', content: ToolTextStats, path: "/text-stats" },
 ];
 
 const UpcomingToolsConfig: UpcomingToolConfig[] = [
     // { name: 'Exemple' },
-    { name: 'Character Counter' },
     { name: 'Youtube Downloader' },
     { name: 'Image converter' },
 ];
