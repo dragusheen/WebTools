@@ -10,5 +10,14 @@ export type PageConfig = {
     name: string;
     content: React.FC;
     path: string;
-    navbar_display: boolean;
+}
+
+export type ToolConfig = {
+    name: string;
+    content: React.FC;
+    path: string;
+}
+
+export type UpcomingToolConfig = {
+    name: string;
 }
