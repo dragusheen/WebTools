@@ -13,7 +13,7 @@ import React from "react";
 /* ----- COMPONENT ----- */
 const Page2: React.FC = () => {
     return (
-        <div>
+        <div className="w-full h-full flex justify-center content-center">
             Page 2
         </div>
     );

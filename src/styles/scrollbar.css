@@ -1,0 +1,25 @@
+/*
+    Author:
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
+
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
+*/
+
+.scrollbar::-webkit-scrollbar {
+    width: 8px; /* Scrollbar width */
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5); /* Thumb color */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.8); /* Lighter on hover */
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* Track color */
+    border-radius: 4px;
+}
