@@ -40,7 +40,7 @@ const NavBar: React.FC = () => {
             <div onClick={() => changeOpen(!open)} className="cursor-pointer fixed p-4 z-50">
                 <Hamburger toggled={open} size={28} color="var(--color-light)"/>
             </div>
-            <div className={`fixed z-40 w-full h-full top-0 left-0 transition duration-300 ease-in-out backdrop-blur-xs ${open ? "opacity-100" : " opacity-0"}`}>
+            <div className={`fixed z-40 w-full h-full top-0 left-0 transition duration-300 ease-in-out backdrop-blur-xs ${open ? "opacity-100" : " opacity-0 pointer-events-none"}`} >
                 <div className={`2xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-8/12 h-full flex flex-col p-16 bg-color-dark-2 top-0 left-0 transition duration-300 ease-in-out ${open ? "translate-x-0" : "-translate-x-full"}`}>
                     <div className="my-6 p-2 w-full rounded-md bg-color-dark">
                         <input type="text" className="w-full outline-none color-light" placeholder="Search Tool..." onChange={e => setFilter(e.target.value)} value={filter}/>
