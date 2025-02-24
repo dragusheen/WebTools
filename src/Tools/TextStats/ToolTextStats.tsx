@@ -16,7 +16,7 @@ import Grid from "../../components/Grid/Grid";
 const ToolTextStats: React.FC = () => {
     const [text, setText] = useState("");
     const [stats] = useState([
-        { name: "Characters", value: 0, statFunction: (text: string) => text.replace(/\s/g, "").length },
+        { name: "Characters", value: 0, statFunction: (text: string) => text.replace(/[\n\r\t]/gm, "").length },
         { name: "Words", value: 0, statFunction: (text: string) => text.split(/\s+/).length },
         { name: "Sentences", value: 0, statFunction: (text: string) => text.split(/[.!?]+/g).filter(text => text.length > 0).length },
         { name: "Paragraphs", value: 0, statFunction: (text: string) => text.split(/\n+/).length },
