@@ -29,6 +29,15 @@ const UpcomingToolsConfig: UpcomingToolConfig[] = [
     // { name: 'Exemple' },
     { name: 'Youtube Downloader' },
     { name: 'Image converter' },
+    { name: 'Text Case' },
+    { name: 'Password Generator' },
+    { name: 'Base64 Encoder/Decoder' },
+    { name: 'Lorem Ipsum Generator' },
+    { name: 'Text Diff' },
+    { name: 'QR Code Generator' },
+    { name: 'Password Strength Checker' },
+    { name: 'Unix Timestamp Converter' },
+    { name: 'Color Picker & Converter' },
 ];
 
 
