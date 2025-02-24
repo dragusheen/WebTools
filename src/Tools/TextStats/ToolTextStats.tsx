@@ -57,7 +57,13 @@ const ToolTextStats: React.FC = () => {
                     Easily count characters, words, sentences, and more with this simple text analysis tool. Just paste or type your text below and get instant stats!
                 </p>
             </Hint>
-            <textarea className="w-full outline-none color-light p-8 rounded-md bg-gray-600 shadow-lg scrollbar" placeholder="Paste or type your text here..." onChange={e => statText(e.target.value)} value={text} rows={10}></textarea>
+            <textarea
+                className="w-full outline-none color-light p-8 rounded-md bg-gray-600 shadow-lg scrollbar"
+                placeholder="Paste or type your text here..."
+                onChange={e => statText(e.target.value)}
+                value={text}
+                rows={10}
+            ></textarea>
             <Grid title="Stats" limit={false}>
                 {
                     stats.map((stat) => (
