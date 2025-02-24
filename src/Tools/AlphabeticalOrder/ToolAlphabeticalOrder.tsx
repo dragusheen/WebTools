@@ -9,22 +9,41 @@
 /* ----- IMPORTS ----- */
 import React, { useState } from "react";
 import Hint from "../../components/Hint/Hint";
+import Switch from "../../components/Switch/Switch";
+import Grid from "../../components/Grid/Grid";
 
 const ToolAlphabeticalOrder: React.FC = () => {
     const [text, setText] = useState("");
-    const [isReverse, setIsReverse] = useState(false);
-    const [removeDuplicates, setRemoveDuplicates] = useState(true);
+
+    const [beforeSort, setBeforeSort] = useState([
+        { name: "Lowercase All", value: false, func: (list: string[]) => list.map(line => line.toLowerCase()) },
+        { name: "Capitalize First Letter", value: false, func: (list: string[]) => list.map(line => line.charAt(0).toUpperCase() + line.slice(1)) },
+    ]);
+
+    const [afterSort, setAfterSort] = useState([
+        { name: "Remove Duplicates", value: false, func: (list: string[]) => [...new Set(list)] },
+        { name: "Reverse List", value: false, func: (list: string[]) => list.reverse() },
+        { name: "Add Line Numbers", value: false, func: (list: string[]) => list.map((line, i) => `${i + 1}. ${line}`) },
+    ]);
+
+    const updateOption = (index: number, newValue: boolean, isBefore: boolean) => {
+        if (isBefore) {
+            setBeforeSort(prev => prev.map((opt, i) => i === index ? { ...opt, value: newValue } : opt));
+        } else {
+            setAfterSort(prev => prev.map((opt, i) => i === index ? { ...opt, value: newValue } : opt));
+        }
+    };
 
     const sortText = (input: string) => {
         let lines = input.split("\n").map(line => line.trim()).filter(line => line.length > 0);
-        if (removeDuplicates) lines = [...new Set(lines)];
+        beforeSort.forEach(option => { if (option.value) lines = option.func(lines); });
         lines.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
-        if (isReverse) lines.reverse();
+        afterSort.forEach(option => { if (option.value) lines = option.func(lines); });
         return lines.join("\n");
     };
 
     return (
-        <div className="w-full h-screen flex flex-col p-12 gap-8 justify-center items-center text-center">
+        <div className="w-full min-h-screen flex flex-col p-12 gap-8 justify-center items-center text-center">
             <Hint title="🔤 Alphabetical Order 📖" bigTitle={true}>
                 <p className="color-light">
                     Sort words, phrases, or sentences in alphabetical order. Paste your text below and get an instant sorted list!
@@ -38,21 +57,20 @@ const ToolAlphabeticalOrder: React.FC = () => {
                 rows={10}
             ></textarea>
 
-            <div className="flex gap-4">
-                <button
-                    className={`px-6 py-3 rounded-md shadow-md transition ${isReverse ? "bg-red-500" : "bg-blue-500"} hover:opacity-80`}
-                    onClick={() => setIsReverse(!isReverse)}
-                >
-                    {isReverse ? "Sort: Z → A" : "Sort: A → Z"}
-                </button>
-
-                <button
-                    className={`px-6 py-3 rounded-md shadow-md transition ${removeDuplicates ? "bg-green-500" : "bg-gray-500"} hover:opacity-80`}
-                    onClick={() => setRemoveDuplicates(!removeDuplicates)}
-                >
-                    {removeDuplicates ? "Remove Duplicates" : "Keep Duplicates"}
-                </button>
-            </div>
+            <Grid title="Sorting Options" limit={false}>
+                {beforeSort.map((option, index) => (
+                    <div key={option.name} className="bg-gray-700 flex flex-col gap-2 p-4 rounded-lg shadow-md hover:bg-gray-700 transition justify-end items-center">
+                        <h3 className="text-xl font-semibold color-light">{option.name}</h3>
+                        <Switch value={option.value} setValue={(b: boolean) => updateOption(index, b, true)} />
+                    </div>
+                ))}
+                {afterSort.map((option, index) => (
+                    <div key={option.name} className="bg-gray-700 flex flex-col gap-2 p-4 rounded-lg shadow-md hover:bg-gray-700 transition justify-end items-center">
+                        <h3 className="text-xl font-semibold color-light">{option.name}</h3>
+                        <Switch value={option.value} setValue={(b: boolean) => updateOption(index, b, false)} />
+                    </div>
+                ))}
+            </Grid>
 
             <textarea
                 className="w-full outline-none color-light p-8 rounded-md bg-gray-800 shadow-lg scrollbar"
@@ -63,5 +81,6 @@ const ToolAlphabeticalOrder: React.FC = () => {
         </div>
     );
 };
+
 
 export default ToolAlphabeticalOrder;
