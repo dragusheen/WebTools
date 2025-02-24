@@ -9,6 +9,7 @@
 /* ----- IMPORTS ----- */
 import HomePage from "../pages/HomePage";
 import PageNotFound from "../pages/PageNotFound";
+import ToolAlphabeticalOrder from "../Tools/AlphabeticalOrder/ToolAlphabeticalOrder";
 import ToolTextStats from "../Tools/TextStats/ToolTextStats";
 import { PageConfig, ToolConfig, UpcomingToolConfig } from "../types/routeConfig";
 
@@ -21,6 +22,7 @@ const PagesConfigs: PageConfig[] = [
 const ToolsConfig: ToolConfig[] = [
     // { name: 'Exemple', content: Exemple, path: "/exemple" },
     { name: 'Text Stats', content: ToolTextStats, path: "/text-stats" },
+    { name: 'Alphabetical Order', content: ToolAlphabeticalOrder, path: "/alphabetical-order" },
 ];
 
 const UpcomingToolsConfig: UpcomingToolConfig[] = [
