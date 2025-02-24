@@ -11,9 +11,11 @@ import React, { useState } from "react";
 import Hint from "../../components/Hint/Hint";
 import Switch from "../../components/Switch/Switch";
 import Grid from "../../components/Grid/Grid";
+import { Check, ClipboardCopy } from "lucide-react";
 
 const ToolAlphabeticalOrder: React.FC = () => {
     const [text, setText] = useState("");
+    const [copied, setCopied] = useState(false);
 
     const [beforeSort, setBeforeSort] = useState([
         { name: "Lowercase All", value: false, func: (list: string[]) => list.map(line => line.toLowerCase()) },
@@ -32,6 +34,7 @@ const ToolAlphabeticalOrder: React.FC = () => {
         } else {
             setAfterSort(prev => prev.map((opt, i) => i === index ? { ...opt, value: newValue } : opt));
         }
+        setCopied(false);
     };
 
     const sortText = (input: string) => {
@@ -42,6 +45,12 @@ const ToolAlphabeticalOrder: React.FC = () => {
         return lines.join("\n");
     };
 
+    const handleCopy = () => {
+        navigator.clipboard.writeText(sortText(text)).then(() => {
+            setCopied(true);
+        });
+    };
+
     return (
         <div className="w-full min-h-screen flex flex-col p-12 gap-8 justify-center items-center text-center">
             <Hint title="🔤 Alphabetical Order 📖" bigTitle={true}>
@@ -49,13 +58,6 @@ const ToolAlphabeticalOrder: React.FC = () => {
                     Sort words, phrases, or sentences in alphabetical order. Paste your text below and get an instant sorted list!
                 </p>
             </Hint>
-            <textarea
-                className="w-full outline-none color-light p-8 rounded-md bg-gray-600 shadow-lg scrollbar"
-                placeholder="Paste or type your text here (one entry per line)..."
-                onChange={e => setText(e.target.value)}
-                value={text}
-                rows={10}
-            ></textarea>
 
             <Grid title="Sorting Options" limit={false}>
                 {beforeSort.map((option, index) => (
@@ -72,15 +74,36 @@ const ToolAlphabeticalOrder: React.FC = () => {
                 ))}
             </Grid>
 
-            <textarea
-                className="w-full outline-none color-light p-8 rounded-md bg-gray-800 shadow-lg scrollbar"
-                readOnly
-                rows={10}
-                value={sortText(text)}
-            ></textarea>
+            <div className="flex flex-col md:flex-row w-full gap-8">
+                <textarea
+                    className="w-full outline-none color-light p-8 rounded-md bg-gray-600 shadow-lg scrollbar"
+                    placeholder="Paste or type your text here (one entry per line)..."
+                    onChange={e => { setText(e.target.value); setCopied(false);}}
+                    value={text}
+                    rows={20}
+                ></textarea>
+
+                <div className="relative w-full">
+                    <textarea
+                        className="w-full outline-none color-light p-8 rounded-md bg-gray-800 shadow-lg scrollbar"
+                        readOnly
+                        rows={20}
+                        value={sortText(text)}
+                    ></textarea>
+
+                    {
+                        text.length > 0 &&
+                            <button
+                                onClick={handleCopy}
+                                className={`absolute top-4 right-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md shadow-md transition ${copied ? "" : "animate-bounce"}`}
+                            >
+                                {copied ? <Check /> : <ClipboardCopy />}
+                            </button>
+                    }
+                </div>
+            </div>
         </div>
     );
 };
-
 
 export default ToolAlphabeticalOrder;
