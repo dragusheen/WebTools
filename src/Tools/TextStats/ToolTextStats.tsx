@@ -15,7 +15,7 @@ import Grid from "../../components/Grid/Grid";
 /* ----- COMPONENT ----- */
 const ToolTextStats: React.FC = () => {
     const [text, setText] = useState("");
-    const [stats] = useState([
+    const stats = [
         { name: "Characters", value: 0, statFunction: (text: string) => text.replace(/[\n\r\t]/gm, "").length },
         { name: "Words", value: 0, statFunction: (text: string) => text.split(/\s+/).length },
         { name: "Sentences", value: 0, statFunction: (text: string) => text.split(/[.!?]+/g).filter(text => text.length > 0).length },
@@ -43,7 +43,7 @@ const ToolTextStats: React.FC = () => {
         }},
         { name: "Uppercase Words", value: 0, statFunction: (text: string) => text.split(/\s+/).filter(word => word === word.toUpperCase()).length },
         { name: "Punctuation Count", value: 0, statFunction: (text: string) => (text.match(/[.,!?;:()&%]/g) || []).length },
-    ]);
+    ];
 
     function statText(newText: string) {
         setText(newText);
