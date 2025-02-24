@@ -1,0 +1,46 @@
+/*
+    Authors:
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
+
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
+*/
+
+.switch {
+    /* switch */
+    --switch-width: 46px;
+    --switch-height: 24px;
+    --switch-offset: calc((var(--switch-height) - var(--circle-diameter)) / 2);
+
+    /* circle */
+    --circle-diameter: 18px;
+
+    /* effect line */
+    --effect-width: calc(var(--circle-diameter) / 2);
+    --effect-height: calc(var(--effect-width) / 2 - 1px);
+}
+
+.slider {
+    width: var(--switch-width);
+    height: var(--switch-height);
+}
+
+.circle {
+    width: var(--circle-diameter);
+    height: var(--circle-diameter);
+    left: var(--switch-offset);
+}
+
+.slider::before {
+    width: var(--effect-width);
+    height: var(--effect-height);
+    left: calc(var(--switch-offset) + (var(--effect-width) / 2));
+}
+
+.switch input:checked+.slider::before {
+    left: calc(100% - var(--effect-width) - (var(--effect-width) / 2) - var(--switch-offset));
+}
+
+.switch input:checked+.slider .circle {
+    left: calc(100% - var(--circle-diameter) - var(--switch-offset));
+}

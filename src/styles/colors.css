@@ -11,6 +11,8 @@
     --color-light: #f7f7f7;
     --color-dark: #242424;
     --color-dark-2: #1a1a1a;
+    --color-green: #00da50;
+    --color-gray: #838383;
 }
 
 .color-light {
@@ -35,4 +37,20 @@
 
 .bg-color-dark-2 {
     background-color: var(--color-dark-2);
+}
+
+.color-green {
+    color: var(--color-green);
+}
+
+.bg-color-green {
+    background-color: var(--color-green);
+}
+
+.color-gray {
+    color: var(--color-gray);
+}
+
+.bg-color-gray {
+    background-color: var(--color-gray);
 }

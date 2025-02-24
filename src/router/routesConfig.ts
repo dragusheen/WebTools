@@ -9,6 +9,7 @@
 /* ----- IMPORTS ----- */
 import HomePage from "../pages/HomePage";
 import PageNotFound from "../pages/PageNotFound";
+import ToolAlphabeticalOrder from "../Tools/AlphabeticalOrder/ToolAlphabeticalOrder";
 import ToolTextStats from "../Tools/TextStats/ToolTextStats";
 import { PageConfig, ToolConfig, UpcomingToolConfig } from "../types/routeConfig";
 
@@ -21,12 +22,22 @@ const PagesConfigs: PageConfig[] = [
 const ToolsConfig: ToolConfig[] = [
     // { name: 'Exemple', content: Exemple, path: "/exemple" },
     { name: 'Text Stats', content: ToolTextStats, path: "/text-stats" },
+    { name: 'Alphabetical Order', content: ToolAlphabeticalOrder, path: "/alphabetical-order" },
 ];
 
 const UpcomingToolsConfig: UpcomingToolConfig[] = [
     // { name: 'Exemple' },
     { name: 'Youtube Downloader' },
     { name: 'Image converter' },
+    { name: 'Text Case' },
+    { name: 'Password Generator' },
+    { name: 'Base64 Encoder/Decoder' },
+    { name: 'Lorem Ipsum Generator' },
+    { name: 'Text Diff' },
+    { name: 'QR Code Generator' },
+    { name: 'Password Strength Checker' },
+    { name: 'Unix Timestamp Converter' },
+    { name: 'Color Picker & Converter' },
 ];
 
 
