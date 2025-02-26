@@ -10,10 +10,9 @@ import React, { useState } from "react";
 import Hint from "../../components/Hint/Hint";
 import Switch from "../../components/Switch/Switch";
 import Grid from "../../components/Grid/Grid";
-import { Check, ClipboardCopy } from "lucide-react";
+import DisplayCopiableText from "../../components/DisplayCopiableText/DisplayCopiableText";
 
 const ToolPasswordGenerator: React.FC = () => {
-    const [copied, setCopied] = useState(false);
     const [length, setLength] = useState(0);
     const [password, setPassword] = useState("");
     const [options, setOptions] = useState([
@@ -33,13 +32,6 @@ const ToolPasswordGenerator: React.FC = () => {
         for (let i = 0; i < finalLength; i++)
             result += charSet[Math.floor(Math.random() * charSet.length)];
         setPassword(result);
-    };
-
-    const handleCopy = () => {
-        navigator.clipboard.writeText(password).then(() => {
-            setCopied(true);
-            setTimeout(() => setCopied(false), 1500);
-        });
     };
 
     function setOptionValue(name: string, value: boolean) {
@@ -84,20 +76,7 @@ const ToolPasswordGenerator: React.FC = () => {
                     Generate Password
                 </button>
             </div>
-
-            <div className="w-full outline-none color-light p-8 rounded-md bg-gray-800 shadow-lg scrollbar text-center relative">
-                {password}
-
-                {
-                    password.length > 0 &&
-                        <button
-                            onClick={handleCopy}
-                            className={`absolute top-4 right-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md shadow-md transition ${copied ? "" : "animate-bounce"}`}
-                        >
-                            {copied ? <Check /> : <ClipboardCopy />}
-                        </button>
-                }
-            </div>
+            <DisplayCopiableText text={password} rows={1} className="text-center" />
         </div>
     );
 };

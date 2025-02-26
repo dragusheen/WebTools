@@ -11,17 +11,14 @@ import React, { useState } from "react";
 import Hint from "../../components/Hint/Hint";
 import Switch from "../../components/Switch/Switch";
 import Grid from "../../components/Grid/Grid";
-import { Check, ClipboardCopy } from "lucide-react";
+import DisplayCopiableText from "../../components/DisplayCopiableText/DisplayCopiableText";
 
 const ToolAlphabeticalOrder: React.FC = () => {
     const [text, setText] = useState("");
-    const [copied, setCopied] = useState(false);
-
     const [beforeSort, setBeforeSort] = useState([
         { name: "Lowercase All", value: false, func: (list: string[]) => list.map(line => line.toLowerCase()) },
         { name: "Capitalize First Letter", value: false, func: (list: string[]) => list.map(line => line.charAt(0).toUpperCase() + line.slice(1)) },
     ]);
-
     const [afterSort, setAfterSort] = useState([
         { name: "Remove Duplicates", value: false, func: (list: string[]) => [...new Set(list)] },
         { name: "Reverse List", value: false, func: (list: string[]) => list.reverse() },
@@ -34,7 +31,6 @@ const ToolAlphabeticalOrder: React.FC = () => {
         } else {
             setAfterSort(prev => prev.map((opt, i) => i === index ? { ...opt, value: newValue } : opt));
         }
-        setCopied(false);
     };
 
     const sortText = (input: string) => {
@@ -43,12 +39,6 @@ const ToolAlphabeticalOrder: React.FC = () => {
         lines.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
         afterSort.forEach(option => { if (option.value) lines = option.func(lines); });
         return lines.join("\n");
-    };
-
-    const handleCopy = () => {
-        navigator.clipboard.writeText(sortText(text)).then(() => {
-            setCopied(true);
-        });
     };
 
     return (
@@ -78,29 +68,12 @@ const ToolAlphabeticalOrder: React.FC = () => {
                 <textarea
                     className="w-full outline-none color-light p-8 rounded-md bg-gray-600 shadow-lg scrollbar"
                     placeholder="Paste or type your text here (one entry per line)..."
-                    onChange={e => { setText(e.target.value); setCopied(false);}}
+                    onChange={e => setText(e.target.value)}
                     value={text}
                     rows={20}
                 ></textarea>
 
-                <div className="relative w-full">
-                    <textarea
-                        className="w-full outline-none color-light p-8 rounded-md bg-gray-800 shadow-lg scrollbar"
-                        readOnly
-                        rows={20}
-                        value={sortText(text)}
-                    ></textarea>
-
-                    {
-                        text.length > 0 &&
-                            <button
-                                onClick={handleCopy}
-                                className={`absolute top-4 right-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md shadow-md transition ${copied ? "" : "animate-bounce"}`}
-                            >
-                                {copied ? <Check /> : <ClipboardCopy />}
-                            </button>
-                    }
-                </div>
+                <DisplayCopiableText text={sortText(text)} rows={20} />
             </div>
         </div>
     );
