@@ -10,6 +10,7 @@
 import HomePage from "../pages/HomePage";
 import PageNotFound from "../pages/PageNotFound";
 import ToolAlphabeticalOrder from "../Tools/AlphabeticalOrder/ToolAlphabeticalOrder";
+import ToolPasswordGenerator from "../Tools/PasswordGnererator/PasswordGenerator";
 import ToolTextStats from "../Tools/TextStats/ToolTextStats";
 import { PageConfig, ToolConfig, UpcomingToolConfig } from "../types/routeConfig";
 
@@ -23,6 +24,7 @@ const ToolsConfig: ToolConfig[] = [
     // { name: 'Exemple', content: Exemple, path: "/exemple" },
     { name: 'Text Stats', content: ToolTextStats, path: "/text-stats" },
     { name: 'Alphabetical Order', content: ToolAlphabeticalOrder, path: "/alphabetical-order" },
+    { name: 'Password Generator', content: ToolPasswordGenerator, path: "/password-generator" },
 ];
 
 const UpcomingToolsConfig: UpcomingToolConfig[] = [
@@ -30,7 +32,6 @@ const UpcomingToolsConfig: UpcomingToolConfig[] = [
     { name: 'Youtube Downloader' },
     { name: 'Image converter' },
     { name: 'Text Case' },
-    { name: 'Password Generator' },
     { name: 'Base64 Encoder/Decoder' },
     { name: 'Lorem Ipsum Generator' },
     { name: 'Text Diff' },

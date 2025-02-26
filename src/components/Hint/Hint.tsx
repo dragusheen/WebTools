@@ -10,14 +10,14 @@
 import React from "react";
 
 /* ----- PROPS ----- */
-interface ButtonProps {
+interface Props {
     title: string;
     children: React.ReactNode;
     bigTitle?: boolean;
 };
 
 /* ----- COMPONENT ----- */
-const Hint: React.FC<ButtonProps> = ({ title, children, bigTitle = false }) => {
+const Hint: React.FC<Props> = ({ title, children, bigTitle = false }) => {
     return (
         <div className=" bg-gray-800 p-6 rounded-xl shadow-lg">
             {
