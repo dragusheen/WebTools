@@ -10,7 +10,7 @@
 import React from "react";
 
 /* ----- PROPS ----- */
-interface ButtonProps {
+interface Props {
     title: string;
     children: React.ReactNode;
     limit?: boolean;
@@ -18,7 +18,7 @@ interface ButtonProps {
 
 
 /* ----- COMPONENT ----- */
-const Grid: React.FC<ButtonProps> = ({ title, children, limit = true }) => {
+const Grid: React.FC<Props> = ({ title, children, limit = true }) => {
     return (
         <div className="w-full max-w-4xl">
             <h2 className="text-3xl font-semibold color-light mb-4">{title}</h2>
