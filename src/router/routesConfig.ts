@@ -10,7 +10,8 @@
 import HomePage from "../pages/HomePage";
 import PageNotFound from "../pages/PageNotFound";
 import ToolAlphabeticalOrder from "../Tools/AlphabeticalOrder/ToolAlphabeticalOrder";
-import ToolPasswordGenerator from "../Tools/PasswordGnererator/PasswordGenerator";
+import ToolPasswordChecker from "../Tools/PasswordStrengthChecker/ToolPasswordStrengthChecker";
+import ToolPasswordGenerator from "../Tools/PasswordGenerator/PasswordGenerator";
 import ToolTextStats from "../Tools/TextStats/ToolTextStats";
 import { PageConfig, ToolConfig, UpcomingToolConfig } from "../types/routeConfig";
 
@@ -25,6 +26,7 @@ const ToolsConfig: ToolConfig[] = [
     { name: 'Text Stats', content: ToolTextStats, path: "/text-stats" },
     { name: 'Alphabetical Order', content: ToolAlphabeticalOrder, path: "/alphabetical-order" },
     { name: 'Password Generator', content: ToolPasswordGenerator, path: "/password-generator" },
+    { name: 'Password Strength Checker', content: ToolPasswordChecker, path: "/password-strength-checker" },
 ];
 
 const UpcomingToolsConfig: UpcomingToolConfig[] = [
@@ -36,7 +38,6 @@ const UpcomingToolsConfig: UpcomingToolConfig[] = [
     { name: 'Lorem Ipsum Generator' },
     { name: 'Text Diff' },
     { name: 'QR Code Generator' },
-    { name: 'Password Strength Checker' },
     { name: 'Unix Timestamp Converter' },
     { name: 'Color Picker & Converter' },
 ];
