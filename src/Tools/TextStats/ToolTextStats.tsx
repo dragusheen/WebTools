@@ -11,7 +11,6 @@ import React, { useState } from "react";
 import Hint from "../../components/Hint/Hint";
 import Grid from "../../components/Grid/Grid";
 
-
 /* ----- COMPONENT ----- */
 const ToolTextStats: React.FC = () => {
     const [text, setText] = useState("");

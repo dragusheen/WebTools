@@ -6,12 +6,14 @@
     --U-----U------------------------
 */
 
+/* ----- IMPORTS ----- */
 import React, { useState } from "react";
 import Hint from "../../components/Hint/Hint";
 import Switch from "../../components/Switch/Switch";
 import Grid from "../../components/Grid/Grid";
 import DisplayCopiableText from "../../components/DisplayCopiableText/DisplayCopiableText";
 
+/* ----- COMPONENT ----- */
 const ToolPasswordGenerator: React.FC = () => {
     const [length, setLength] = useState(0);
     const [password, setPassword] = useState("");
