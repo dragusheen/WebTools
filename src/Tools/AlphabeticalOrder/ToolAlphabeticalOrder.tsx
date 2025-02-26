@@ -13,6 +13,7 @@ import Switch from "../../components/Switch/Switch";
 import Grid from "../../components/Grid/Grid";
 import DisplayCopiableText from "../../components/DisplayCopiableText/DisplayCopiableText";
 
+/* ----- COMPONENT ----- */
 const ToolAlphabeticalOrder: React.FC = () => {
     const [text, setText] = useState("");
     const [beforeSort, setBeforeSort] = useState([
