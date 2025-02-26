@@ -9,16 +9,15 @@
 /* ----- IMPORTS ----- */
 import React from "react";
 import css from "./Switch.module.css"
-import { Check, X } from "lucide-react";
 
 /* ----- PROPS ----- */
-interface SwitchProps {
+interface Props {
     value: boolean;
     setValue: (value: boolean) => void;
 };
 
 /* ----- COMPONENT ----- */
-const Switch: React.FC<SwitchProps> = ({ value, setValue}) => {
+const Switch: React.FC<Props> = ({ value, setValue}) => {
     return (
         <>
             <label className={`
@@ -56,30 +55,6 @@ const Switch: React.FC<SwitchProps> = ({ value, setValue}) => {
                         duration-200
                         ease-[cubic-bezier(0.27,0.2,0.25,1.51)]
                     `}>
-                        <X
-                            className={`
-                                cross
-                                absolute
-                                h-auto
-                                duration-200
-                                ease-[cubic-bezier(0.27,0.2,0.25,1.51)]
-                                scale-${value ? "0" : "1"}
-                            `}
-                            size={10}
-                            color="var(--color-gray)"
-                        />
-                        <Check
-                            className={`
-                                checkmark
-                                absolute
-                                h-auto
-                                duration-200
-                                ease-[cubic-bezier(0.27,0.2,0.25,1.51)]
-                                scale-${value ? "1" : "0"}
-                            `}
-                            size={10}
-                            color="var(--color-green)"
-                        />
                     </div>
                 </div>
             </label>
